@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 8,
-    marginBottom: 18
+    marginTop: 18
   },
   buttonText: {
     color: "#FFF",
