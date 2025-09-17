@@ -1,14 +1,27 @@
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import { View } from '@/components/Themed';
+import Slider from '@react-native-community/slider';
+import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <Image 
+          source={require('@/assets/images/logo.svg')} 
+          style={{ width: 200, height: 200 }} 
+      />
+      <Text style={ styles.title }>16 caracteres</Text>
+      <Slider 
+        style={{ width: 200, height: 40 }}
+        minimumValue={8}
+        maximumValue={16}
+        thumbTintColor='#392DE9'
+        minimumTrackTintColor='#F49B36'
+      />
+      <TouchableOpacity
+        style={ styles.button } 
+        onPress={() => alert("botão pressionado")}>
+        <Text style={styles.buttonText}>Gerar senha</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -28,4 +41,17 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+  button: {
+    backgroundColor: "#392DE9",
+    width: "80%",
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8,
+    marginBottom: 18
+  },
+  buttonText: {
+    color: "#FFF",
+    fontSize: 20
+  }
 });
